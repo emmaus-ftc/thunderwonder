@@ -11,6 +11,8 @@ html, body {                      /* geldt voor html en body */
   margin: 0px;                    /* standaard marge 0 */
   background-color: #EEEEEE;    /* achtergrondkleur lichtgrijs */
   color: #303030;               /* tekstkleur donkergrijs */
+  background-image: url(afbeeldingen/Constructie.webp);
+  background-size: cover;
 }  
 
 body * {                          /* geldt voor alles in body */
