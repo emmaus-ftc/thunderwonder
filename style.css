@@ -61,7 +61,8 @@ p {
 /* Opmaak voor alle pagina's */
 
 h1, h2, h3 {
-      color: rgb(195, 182, 88);
+      color: rgb(255, 214, 110);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .smalltext {
@@ -82,8 +83,9 @@ a:hover {
 /* Navigatiebalk voor alle pagina's */
 nav ul {
     list-style-type: none;
-    margin: auto;
+    margin: 0;
     padding: 0;
+    width: 80px;
     background-color: #dddddd;
     overflow: hidden;
 }
@@ -95,8 +97,8 @@ nav ul li {
 nav li a {
     display: block;
     color: white;
+    padding: 10px;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
 }
 
