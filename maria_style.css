@@ -7,3 +7,17 @@
   margin: 10px auto;              /* boven en onder 0 pixels marge, links en rechts marge gelijk verdeeld (gecentreerd) */
 }
 
+.smalltext_maria{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  font-size: 0.7em;
+}
+
+.maria_maria_navigation li{
+  width: 20%;
+}
+
+.maria_maria_navigation li a:hover {
+  background-color: #aaaaaa;
+  text-decoration: none;
+}
