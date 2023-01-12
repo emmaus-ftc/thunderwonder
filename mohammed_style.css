@@ -1,0 +1,9 @@
+
+
+/* Indeling voor Mohammed's pagina */
+
+.mohammed_page {
+  width: 700px;                   /* vaste breedte van 700 pixels */
+  margin: 10px auto;              /* boven en onder 0 pixels marge, links en rechts marge gelijk verdeeld (gecentreerd) */
+}
+
