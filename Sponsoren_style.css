@@ -1,35 +1,73 @@
 /* Instellingen om fouten te helpen vinden, uncomment om aan te zetten */
 
-* {                                          /* geldt voor alles */
-    /* border: 1px dotted black;         */  /* zorg dat elke box een gestippelde rand krijgt, zodat je de afmeting goed kunt zien, letop dat dit de layout soms kan wijzigen */
-    /* background-color: rgba(0,0,0,5%); */  /* zorg dat elke box een doorzichtige donkere achtergrond krijgt, hoe meer boxen in elkaar hoe donkerder de achtergrondkleur */
+/* 
+* {                                      (geldt voor alles)
+    border: 1px dotted black;            (zorgt ervoor dat elke box een gestippelde rand krijgt, zodat je de afmeting goed kunt zien, letop dat dit de layout soms kan wijzigen)
+    background-color: rgba(0,0,0,5%);    (zorgt ervoor dat elke box een doorzichtige donkere achtergrond krijgt, hoe meer boxen in elkaar hoe donkerder de achtergrondkleur)
 }
+*/
 
-/* Basisinstellingen voor alle pagina's, alleen aanpassen als je pro wilt worden */
+/* Basisinstellingen voor alle pagina's */
 
 html, body {                      /* geldt voor html en body */
-  margin: 0px;                    /* standaard marge 0 */
-  background-color: #fffcf0;    /* achtergrondkleur lichtgrijs */
-  color: #303030;               /* tekstkleur donkergrijs */
+  margin: 0px;                    /* standaard marge van 0px */
+  background-color: rgb(175, 175, 45);    /* achtergrondkleur lichtgroen */
+  color: #000000;               /* tekstkleur zwart */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }  
 
 body * {                          /* geldt voor alles in body */
   overflow: hidden;               /* zorgt dat DIV en andere block elementen de hoogte krijgt van wat erin zit (anders is het soms 0) */
-  box-sizing: border-box;         /* zorg dat border meetelt bij de width en height van boxen */
-  margin: 0px;                    /* standaard marge 0 */
+  box-sizing: border-box;         /* zorgt ervoor dat border meetelt bij de width en height van boxen */
+  margin: 0px;                    /* standaard marge van 0px */
+  text-align: center;             /* standaard tekst centreren */
 }
 
-/* Indeling voor alle pagina's */
+
+/* Navigatiebalk voor alle pagina's */
+
+nav ul {
+  list-style-type: none;
+  margin-bottom: 0vw;
+  padding: 0vw;
+  background-color: rgb(217, 255, 208);
+  background-size: cover;
+  overflow-y: visible;
+  border-radius: 10px;
+}
+
+nav ul li {
+  float: left;                           /* zorgt ervoor dat de tekst links zweeft */
+}
+
+nav li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  padding: 1vw 1.2vw;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color:  rgb(175, 238, 103);
+}
+
+nav li a.active {
+  background-color:rgb(235, 180, 135);
+}
+
+.nav_met_button {                        /* Border radius van de navigatibalk aangepast voor de pagina's met button rechtsboven */      
+  border-radius: 10px 10px 0px 10px;
+}
+
+
+/* Indeling en opmaak voor alle pagina's */
 
 .page {
-  width: 90vw;                   /* vaste breedte van 90vw */
-  margin: 10px auto;              /* boven en onder 0 pixels marge, links en rechts marge gelijk verdeeld (gecentreerd) */
+  width: 90vw;                           /* breedte van 90 viewwidth */
+  height: auto;                          /* automatische hoogte */
+  margin: 0px auto;                      /* boven en onder 0 pixels marge, links en rechts marge gelijk verdeeld (gecentreerd) */
 }
 
-header, footer {                  /* geldt voor header en footer */
-  margin: 10px 0px;
-}
 main {                       
   text-align: left;                      /* tekst links */
 }
@@ -60,7 +98,7 @@ h1, h2, p {                              /* geldt voor h1, h2 & p */
 
 .artikel {
   margin: 0.7vw;
-  border-bottom: 3px dashed #182833;
+  border-bottom: 3px dashed rgb(217, 255, 208);
   text-align: left;
 }
 
@@ -69,24 +107,35 @@ h3 {
 }
 
 h1, h2, h3 {                             /* geldt voor h1, h2 & h3 */
-  color: #ffb115;
-  text-align: center;
+  color: rgb(235, 180, 135);
   font-weight: bold;
 }
 
 .smalltext {
   text-align: center;                     /* tekst centreren */
-  font-size: /*1.5vw*/ 0.7em;
+  font-size: 1.5vw;
 }
 
 a {
-  color: rgb(0, 110, 255);
+  color: skyblue;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
 }
+
+
+/* Alle code omtrent het logo (behalve het responsive design gedeelte, zie daarvoor alle code vanaf regel 270) */
+
+.logo {
+  float: right;
+  width: 100px;
+  position: relative;
+}
+
+
+/* Indeling & opmaak voor alle afbeeldingen */
 
 .afbeelding {
   background-size: cover;
@@ -95,39 +144,10 @@ a:hover {
   transition: 1s ease-in;
 }
 
-
-/* Navigatiebalk voor alle pagina's */
-nav ul {
-  list-style-type: none;
-  margin-bottom: 0vw;
-  padding: 0vw;
-  background-color: #1F4762;
-  background-size: cover;
-  overflow-y: visible;
-  border-radius: 10px;
+.afbeelding:active, .afbeelding:hover {             /* Zie regels 421, 471, 512 & 548 voor de code waarmee afbeeldingen groter worden als je erop klikt (of ingedrukt houdt bij desktops) */
+  cursor: pointer;
 }
 
-nav ul li {
-  float: left;                           /* zorgt ervoor dat de tekst links zweeft */
-  text-align: center;
-  width: 14.28571%;
-}
-
-nav li a {
-  display: block;
-  color: rgb(255, 255, 255);
-  padding: 1vw 1.2vw;
-  text-decoration: none;
-}
-
-nav li a:hover {
-  background-color:  #182833;
-  text-decoration: none;
-}
-
-nav li a.active {
-  background-color:#E09F5A;
-}
 
 /*
 Responsive design
