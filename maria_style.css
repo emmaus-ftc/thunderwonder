@@ -21,3 +21,10 @@
   background-color: #aaaaaa;
   text-decoration: none;
 }
+
+.banner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}

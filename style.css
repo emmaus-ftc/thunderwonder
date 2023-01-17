@@ -9,7 +9,7 @@
 
 html, body {                      /* geldt voor html en body */
   margin: 0px;                    /* standaard marge 0 */
-  background-color: #fffcf0;    /* achtergrondkleur lichtgrijs */
+  background-color: #fffdf6;    /* achtergrondkleur lichtgrijs */
   color: #303030;               /* tekstkleur donkergrijs */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }  
@@ -59,8 +59,9 @@ h1, h2, p {                              /* geldt voor h1, h2 & p */
 }
 
 .artikel {
-  margin: 0.7vw;
-  border-bottom: 3px dashed #182833;
+  margin: 0.5vw;
+  border: 3px solid #182833;
+  padding: 10px;
   text-align: left;
 }
 
