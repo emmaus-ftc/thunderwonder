@@ -9,7 +9,7 @@
 
 html, body {                      /* geldt voor html en body */
   margin: 0px;                    /* standaard marge 0 */
-  background-color: #fffdf6;    /* achtergrondkleur lichtgrijs */
+  background-color: #ffffff;    /* achtergrondkleur lichtgrijs */
   color: #303030;               /* tekstkleur donkergrijs */
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }  
@@ -23,8 +23,8 @@ body * {                          /* geldt voor alles in body */
 /* Indeling voor alle pagina's */
 
 .page {
-  width: 90vw;                   /* vaste breedte van 90vw */
-  margin: 10px auto;              /* boven en onder 0 pixels marge, links en rechts marge gelijk verdeeld (gecentreerd) */
+  width: 100%;                   /* vaste breedte van 90vw */
+  margin: 10px auto;             /* boven en onder 0 pixels marge, links en rechts marge gelijk verdeeld (gecentreerd) */
 }
 
 header, footer {                  /* geldt voor header en footer */
@@ -32,11 +32,33 @@ header, footer {                  /* geldt voor header en footer */
 }
 main {                       
   text-align: left;                      /* tekst links */
+  width: 90%;
+  float: right;
 }
 
 footer {                  
   margin: 1vw 0px;
 }    
+
+/*
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+.fa-instagram {
+  background: #ea2899;
+  color: white;
+}
+*/
 
 h6 {
   font-size: 2vw;
@@ -60,7 +82,7 @@ h1, h2, p {                              /* geldt voor h1, h2 & p */
 
 .artikel {
   margin: 0.5vw;
-  border: 3px solid #182833;
+  border: 3px outset #dadada;
   padding: 10px;
   text-align: left;
 }
@@ -98,7 +120,7 @@ a:hover {
 
 
 /* Navigatiebalk voor alle pagina's */
-nav ul {
+/*nav ul {
   list-style-type: none;
   margin-bottom: 0vw;
   padding: 0vw;
@@ -109,7 +131,7 @@ nav ul {
 }
 
 nav ul li {
-  float: left;                           /* zorgt ervoor dat de tekst links zweeft */
+  float: left;                          
   text-align: center;
   width: 14.28571%;
 }
@@ -128,7 +150,32 @@ nav li a:hover {
 
 nav li a.active {
   background-color:#E09F5A;
+}*/
+
+.sidebar {
+  height: 100%;
+  width: 10%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
 }
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
 
 /*
 Responsive design
