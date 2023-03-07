@@ -37,7 +37,11 @@ main {
 
 footer {                  
   margin: 1vw 0px;
-}    
+}
+
+.headtitle {
+  margin-top: 100px;
+}
 
 
 /*Social media*?
@@ -100,7 +104,7 @@ h1, h2, h3 {                             /* geldt voor h1, h2 & h3 */
 
 .smalltext {
   text-align: center;                     /* tekst centreren */
-  font-size: /*1.5vw*/ 0.7em;
+  font-size: 0.8vw;
 }
 
 a {
@@ -121,6 +125,7 @@ a:hover {
 
 
 /* Navigatiebalk voor alle pagina's */
+
 nav ul {
   list-style-type: none;
   margin-bottom: 0vw;
@@ -128,13 +133,15 @@ nav ul {
   background-color: #1F4762;
   background-size: cover;
   overflow-y: visible;
-  border-radius: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 nav ul li {
   float: left;                          
   text-align: center;
-  width: 14.28571%;
+  width: 19.99999%;
 }
 
 nav li a {
@@ -153,7 +160,13 @@ nav li a.active {
   background-color:#E09F5A;
 }
 
+/* Docu */
 
+#ep {
+  margin: 0% 20% 0% 20%;
+  width: 60%;
+  height: 1000px;
+}
 
 /*
 Responsive design
@@ -209,7 +222,7 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
 
   .smalltext {
     width: 100%;
-    font-size: 4vw ;
+    font-size: 3vw ;
   }
 
   .afbeelding {
@@ -244,7 +257,7 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
   }
 
   .smalltext {
-    font-size: 3vw;
+    font-size: 2.5vw;
     width: 100%;
   }
 
