@@ -58,8 +58,12 @@ public class ENIGE_DIE_WERKT_COPY extends LinearOpMode {
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
         Arm_Left.setDirection(DcMotorSimple.Direction.REVERSE);
-        Arm_Left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        Arm_Right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorBackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorBackRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorFrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorFrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        // Arm_Left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        // Arm_Right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         ServoPosition = 0.5;
         ServoSpeed = 0.3;
         
@@ -69,30 +73,18 @@ public class ENIGE_DIE_WERKT_COPY extends LinearOpMode {
             double y = gamepad2.left_stick_y; // Remember, this is reversed!
             double x = -gamepad2.left_stick_x * 1.1; // Counteract imperfect strafing
             double rx = -gamepad2.right_stick_x;
-
-        if(gamepad1.right_trigger >= 0.25 && Arm_Right.getCurrentPosition() <= 430){
-            Arm_Left.setTargetPosition(Arm_Left.getCurrentPosition()+40);
-            Arm_Right.setTargetPosition(Arm_Right.getCurrentPosition()+40);
-            Arm_Left.setPower(1);
-            Arm_Right.setPower(1);
-            Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }
-        if(gamepad1.left_trigger >= 0.25 && Arm_Right.getCurrentPosition() > 0){
-            Arm_Left.setTargetPosition(Arm_Left.getCurrentPosition()-20);
-            Arm_Right.setTargetPosition(Arm_Right.getCurrentPosition()-20);
-            Arm_Left.setPower(1);
-            Arm_Right.setPower(1);
-            Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }    
             
-            if (gamepad1.x) {
-        ServoPosition += ServoSpeed;
-      }
+            
+            Arm_Left.setPower((gamepad1.left_stick_y + gamepad1.left_stick_y));
+            Arm_Right.setPower((gamepad1.left_stick_y + gamepad1.left_stick_y));
+            
+            
             if (gamepad1.b) {
-        ServoPosition += -ServoSpeed;
-      }
+            ServoPosition += ServoSpeed;
+            }
+            if (gamepad1.x) {
+            ServoPosition += -ServoSpeed;
+            }
       // Keep Servo position in valid range
       ServoPosition = Math.min(Math.max(ServoPosition, 0), 1);
       Servo_Left.setPosition(ServoPosition);
@@ -119,19 +111,20 @@ public class ENIGE_DIE_WERKT_COPY extends LinearOpMode {
             }
             
             
-            // there might be an issue where the wheelspeeds don't update at the same time, which causes issue's
+            // there might be an issue where the wheelspeeds don't update at the same time, which causes issues
             for(int i = 0; i < currentSpeed.length; i++){
+                if(gamepad2.left_bumper){
                 if(rx == 0){
                 if(maxSpeed[i] == 0){
-                    //if (stopped[i] > 0){
-                    //if (stopped [i] == 100){
-                    //currentSpeed[i] *= -1;
+                    // if (stopped[i] > 0){
+                    // if (stopped [i] == 100){
+                    // currentSpeed[i] *= -1;
                     
-                   // }
-                    //stopped[i] --;
-                    //} else {
+                    // }
+                    // stopped[i] --;
+                    // } else {
                         currentSpeed[i] = 0;
-                    //}
+                    // }
                 } else
                 if(maxSpeed[i] > 0){
                     if(currentSpeed[i] < maxSpeed[i]){
@@ -151,6 +144,10 @@ public class ENIGE_DIE_WERKT_COPY extends LinearOpMode {
                 } else {
                     currentSpeed[i] = maxSpeed[i];
                 }
+                } else {
+                    currentSpeed[i] = maxSpeed[i];
+                }
+            }
             
             
             if (cooldown == 0){
@@ -171,44 +168,45 @@ public class ENIGE_DIE_WERKT_COPY extends LinearOpMode {
             motorBackLeft.setPower(currentSpeed[2]*gears);
             motorFrontRight.setPower(currentSpeed[1]*gears);
             motorBackRight.setPower(currentSpeed[3]*gears);
-            }
+            // }
+        // eerst 695
+        //  if(gamepad1.dpad_up){
+        //  Arm_Left.setTargetPosition(1885);
+        //  Arm_Right.setTargetPosition(1885);
+        //  Arm_Left.setPower(0.5);
+        //  Arm_Right.setPower(0.5);
+        //  Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //  Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         
-        if(gamepad1.dpad_up){
-        Arm_Left.setTargetPosition(450);
-        Arm_Right.setTargetPosition(450);
-        Arm_Left.setPower(1);
-        Arm_Right.setPower(1);
-        Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //  }
+        //  if(gamepad1.dpad_down){
+        //  Arm_Left.setTargetPosition(0);
+        //  Arm_Right.setTargetPosition(0);
+        //  Arm_Left.setPower(0.1);
+        //  Arm_Right.setPower(0.1);
+        //  Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //  Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //  }
+        //  //eerst 500
+        //  if(gamepad1.dpad_left){
+        //  Arm_Left.setTargetPosition(1400);
+        //  Arm_Right.setTargetPosition(1400);
+        //  Arm_Left.setPower(0.5);
+        //  Arm_Right.setPower(0.5);
+        //  Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        // Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         
-        }
-        if(gamepad1.dpad_down){
-        Arm_Left.setTargetPosition(0);
-        Arm_Right.setTargetPosition(0);
-        Arm_Left.setPower(0.2);
-        Arm_Right.setPower(0.2);
-        Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //  }
+        //  // eerst 300
+        //  if(gamepad1.dpad_right){
+        //  Arm_Left.setTargetPosition(900);
+        //  Arm_Right.setTargetPosition(900);
+        //  Arm_Left.setPower(0.5);
+        //  Arm_Right.setPower(0.5);
+        //  Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //  Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         
-        }
-        if(gamepad1.dpad_left){
-        Arm_Left.setTargetPosition(310);
-        Arm_Right.setTargetPosition(310);
-        Arm_Left.setPower(1);
-        Arm_Right.setPower(1);
-        Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        
-        }
-        if(gamepad1.dpad_right){
-        Arm_Left.setTargetPosition(200);
-        Arm_Right.setTargetPosition(200);
-        Arm_Left.setPower(1);
-        Arm_Right.setPower(1);
-        Arm_Left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        Arm_Right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        
-        }
+        //  }
         
         
         // if(Arm_Right.getCurrentPosition() != Arm_Right.getTargetPosition()){
@@ -238,6 +236,7 @@ public class ENIGE_DIE_WERKT_COPY extends LinearOpMode {
         telemetry.addData("Is the servo busy?", Arm_Right.isBusy());
         telemetry.addData("speed", currentSpeed[0]);
         telemetry.update();
-      }
+      
     }
   }
+}
