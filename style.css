@@ -77,7 +77,7 @@ h1, h2, p {                              /* geldt voor h1, h2 & p */
 .kolom {
   text-align: left;                      /* tekst links */
   float: left;
-  width: 25vw;
+  width: 100vw;
   padding: 0 1vw 0 1vw;
 }
 
@@ -168,6 +168,52 @@ nav li a.active {
   height: 1000px;
 }
 
+/*foto's*/
+
+.jaartal {
+  color: #182833;
+  text-align: left;
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+  font-size: 1.25vw;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 15px;
+  float: left;
+  width: 24.99999%;
+}
+
+.responsive-foto2223 {
+  padding: 0 15px;
+  float: left;
+  width: 19.99999%;
+}
+
 /*
 Responsive design
 Ik heb het responsive design getest via de functie "inspecteren" van Google. Hiermee kon ik diverse apparaten selecteren en zag ik precies hoe de website eruit ziet op het geselecteerde apparaat.
@@ -228,6 +274,10 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
   .afbeelding {
     margin: 0.5vw auto;
   }
+
+  .responsive, .responsive-foto2223{
+    width: 100%;
+  }
 }
 
 /* Telefoons liggend, Ipads en tablets staand */
@@ -238,7 +288,7 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
   }
 
   .kolom {                   
-    width: 50vw;
+    width: 100vw;
     padding: 1px;
     margin: 0vw;
   }
@@ -264,14 +314,19 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
   .afbeelding {
     margin: 0.5vw;
   }
+
+  .responsive, .responsive-foto2223 {
+    width: 50%;
+  }
 }
+
 
 /* Tablets & Ipads liggend */
 
 @media only screen and (max-width: 1200px) and (min-width: 850px) {           /* geldt voor schermen met een breedte tussen 850px & 1200px */
   
   .kolom {
-    width: 33vw;
+    width: 100vw;
   }
 
   h1 {
@@ -289,6 +344,16 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
   .smalltext {
     width: 100%;
     font-size: 2vw ;
+  }
+
+  .responsive {
+    width: 50vw;
+    margin: 6px 0;
+  }
+
+  .responsive-foto2223 {
+    width: 33vw;
+    margin 6px 0;
   }
 }
 
