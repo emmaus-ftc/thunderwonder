@@ -1,9 +1,9 @@
 /* Instellingen om fouten te helpen vinden, uncomment om aan te zetten */
 
-* {                                          /* geldt voor alles */
+/* {                                          /* geldt voor alles */
     /* border: 1px dotted black;         */  /* zorg dat elke box een gestippelde rand krijgt, zodat je de afmeting goed kunt zien, letop dat dit de layout soms kan wijzigen */
-    /* background-color: rgba(0,0,0,5%); */  /* zorg dat elke box een doorzichtige donkere achtergrond krijgt, hoe meer boxen in elkaar hoe donkerder de achtergrondkleur */
-}
+    /* background-color: rgba(0,0,0,5%); } */  /* zorg dat elke box een doorzichtige donkere achtergrond krijgt, hoe meer boxen in elkaar hoe donkerder de achtergrondkleur */
+
 
 /* Basisinstellingen voor alle pagina's, alleen aanpassen als je pro wilt worden */
 
@@ -353,7 +353,7 @@ Ik heb het responsive design getest via de functie "inspecteren" van Google. Hie
 
   .responsive-foto2223 {
     width: 33vw;
-    margin 6px 0;
+    margin: 6px ;
   }
 }
 
