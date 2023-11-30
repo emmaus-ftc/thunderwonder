@@ -215,13 +215,13 @@ div.desc {
 }
 
 /* Over ons */
-/*.teamleden {
+.teamleden {
   width: 100vw;
   height: auto;
-}*/
+}
 .lidLinks, .lidRechts {
-  width: 75vw;
-  height: 300px;
+  width: 100vw;
+  height: auto;
   /*border: 20px, solid, #182833;*/ 
 }
 .lidLinks {
@@ -230,13 +230,22 @@ div.desc {
 .lidRechts {
   float: right;
 }
+.lidTekstLinks, .lidTekstRechts {
+  width: 75vw;
+}
+.lidTekstLinks {
+  float: left;
+}
+.lidTekstRechts {
+  float: right;
+}
 .lidFotoLinks {
   float: right;
-  width: 20vw;
+  width: 24vw;
 }
 .lidFotoRechts {
   float: left;
-  width: 20vw;
+  width: 24vw;
 }
 
 /*
