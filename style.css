@@ -214,6 +214,12 @@ div.desc {
   width: 19.99999%;
 }
 
+/* Sponsoren */
+.sponsorTekst {
+  width: 75%;
+  height: auto;
+}
+
 /* Over ons */
 .teamleden {
   width: 100vw;
@@ -231,7 +237,7 @@ div.desc {
   float: right;
 }
 .lidTekstLinks, .lidTekstRechts {
-  width: 75vw;
+  width: 75%;
 }
 .lidTekstLinks {
   float: left;
@@ -239,13 +245,13 @@ div.desc {
 .lidTekstRechts {
   float: right;
 }
-.lidFotoLinks {
+.lidFotoLinks, .sponsorFoto {
   float: right;
-  width: 24vw;
+  width: 24%;
 }
 .lidFotoRechts {
   float: left;
-  width: 24vw;
+  width: 24%;
 }
 
 /*
