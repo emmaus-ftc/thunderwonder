@@ -222,7 +222,7 @@ div.desc {
 .lidLinks, .lidRechts {
   width: 75vw;
   height: 300px;
-  /*border: 20px, solid, #182833;*/
+  /*border: 20px, solid, #182833;*/ 
 }
 .lidLinks {
   float: left;
@@ -232,11 +232,11 @@ div.desc {
 }
 .lidFotoLinks {
   float: right;
-  width: 24vw;
+  width: 20vw;
 }
 .lidFotoRechts {
   float: left;
-  width: 24vw;
+  width: 20vw;
 }
 
 /*
