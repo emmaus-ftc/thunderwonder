@@ -228,7 +228,11 @@ div.desc {
 .lidLinks, .lidRechts {
   width: 100vw;
   height: auto;
-  /*border: 20px, solid, #182833;*/ 
+  border-width: 5px;
+  border-color: #182833;
+  border-style: solid;
+  margin-top: 20px;
+  margin-left: 5px;
 }
 .lidLinks {
   float: left;
