@@ -22,7 +22,9 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
     private DcMotor motorBackLeft;
     private DcMotor motorFrontRight;
     private DcMotor motorBackRight;
-    private Servo Pols;
+    private DcMotor Pols;
+    //private Servo Pols;
+    
     private Servo FingerLeft;
     private Servo FingerRight;
     //private DcMotor ArmLeft;
@@ -44,7 +46,7 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
     double polsSpeed = 0.001;
     
     boolean hanging = false;
-    int timer = 1000;
+    int timer = 2000;
     
     double leftopen = 0.4;
     double rightopen = 0.97;
@@ -63,17 +65,18 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
         DcMotor motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
         DcMotor motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
         DcMotor motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
-        Pols = hardwareMap.get(Servo.class, "Pols");
+        DcMotor Pols = hardwareMap.dcMotor.get("Pols");
+        // Pols = hardwareMap.get(Servo.class, "Pols");
         FingerLeft = hardwareMap.get(Servo.class, "FingerLeft");
         FingerRight = hardwareMap.get(Servo.class, "FingerRight");
         //ArmLeft = hardwareMap.get(DcMotor.class, "ArmLeft");
         ArmRight = hardwareMap.get(DcMotor.class, "ArmRight");
         Plane = hardwareMap.get(Servo.class, "Plane");
 
-        // Reverse the right side motors
+        // Reverse the right side motojavascript:void(0);rs
         // Reverse left motors if you are using NeveRests
         FingerRight.setDirection(Servo.Direction.REVERSE);
-        Pols.setDirection(Servo.Direction.REVERSE);
+        // Pols.setDirection(Servo.Direction.REVERSE);
         motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
         motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
         //ArmLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -84,6 +87,7 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
         motorFrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //ArmLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         ArmRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        Pols.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         // Arm_Left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         // Arm_Right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         
@@ -116,29 +120,21 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
             
             
             if (gamepad1.right_trigger > 0.5) {
-              polsPos = Range.clip(polsPos + polsSpeed,0 , 1);
-              //polsPos = polsPos + polsSpeed;
-               
-               
+              Pols.setPower(0.5);
+            } else if (gamepad1.left_trigger > 0.5) {
+                Pols.setPower(-0.5);
+            } else {
+                Pols.setPower(0);
             }
-            if (gamepad1.left_trigger > 0.5) {
-                polsPos = Range.clip(polsPos - polsSpeed, 0, 1);
-                if(polsPos > 1) {
-                    polsPos = 1;
-                }
-                if (polsPos < 0.45) {
-                    polsPos = 0.45;
-                }
-            }
-            Pols.setPosition(polsPos);
+            // Pols.setPosition(polsPos);
             
             if (gamepad1.right_stick_button) {
                 Plane.setPosition(1);
             }
             
-            if (gamepad1.dpad_down) {
-                polsPos = 0.642;
-            }
+            // if (gamepad1.dpad_down) {
+            //     polsPos = 0.642;
+            // }
             
             if (gamepad1.dpad_up) {
                 if (timer <= 0) {
@@ -147,7 +143,7 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
                 } else {
                     hanging = true;
                 }
-                timer = 1000;
+                timer = 2000;
                 }
             }
             timer --;
@@ -187,10 +183,10 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
             maxSpeed[2] = backLeftPower*gears;
             maxSpeed[3] = backRightPower*gears;
             
-            if (gamepad2.a|| gamepad2.x){
+            if (gamepad2.a|| gamepad2.y){
                 gears = 0.5;
             }
-            if (gamepad2.y) {
+            if (gamepad2.x) {
                 gears = 0.5 - 0.5/3*2;
             }
             if (gamepad2.b) {
@@ -241,18 +237,18 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
             if (cooldown == 0){
             if(gamepad2.right_trigger > 0.25 && gears <= 1){
                 gears += 0.5/3;
-                cooldown = 1000;
+                cooldown = 5000;
             }
-            if(gamepad2.left_trigger > 0.25 && gears - 0.05 > 0.5/3){
+            if(gamepad2.left_trigger > 0.25 && gears >= 0.5/3){
                 gears -= 0.5/3;
-                cooldown = 1000;
+                cooldown = 5000;
             }
             
             } else {
                 cooldown --;
             }
-            if(gears < 0.5/3) {
-                gears = 0.5/3;
+            if(gears < 0.2) {
+                gears = 0.2;
             }
             
             motorFrontLeft.setPower(currentSpeed[0]); //*gears);
@@ -327,9 +323,10 @@ public class ENIGE_DIE_WERKT_COPY_Copy extends LinearOpMode {
         telemetry.addData("current power", ArmRight.getPower());
         // telemetry.addData("Is the servo busy?", Arm.isBusy());
         telemetry.addData("speed", currentSpeed[0]);
-        telemetry.addData("Pols: ", Pols.getPosition());
+        //telemetry.addData("Pols: ", Pols.getPosition());
         telemetry.addData("Servo Links: ", FingerLeft.getPosition());
         telemetry.addData("Servo Rechts: ", FingerRight.getPosition());
+        
         telemetry.update();
       
     }
